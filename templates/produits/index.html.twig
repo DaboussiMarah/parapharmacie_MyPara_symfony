@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits index{% endblock %}
+
+{% block body %}
+
+    <style>
+        h4 {
+            text-align: center;
+        }
+    </style>
+    
+   <h4>Liste des produits</h4><br><br>
+
+<div class="d-flex justify-content-center">
+    <div class="input-group" style="max-width: 500px;">
+        <form action="{{ path('app_produits_search') }}" method="GET" class="d-flex">
+            <input type="search" class="form-control rounded-lg" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="libelle" />
+            <button type="submit" class="btn btn-outline-primary ms-2">Search</button>
+        </form>
+    </div>
+</div>
+
+<!-- Placez votre balise de liste des produits ici -->
+
+
+
+<br>
+
+
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>image</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <style>
+            .product-image {
+              width: 50px;
+              height: 50px;
+            }
+          </style>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.description }}</td>
+                <td><img src="{{ produit.image }}" alt="image" class="product-image"><td>
+               
+                <td>
+                    <a href="{{ path('app_produits_show', {'id': produit.id}) }}">Détail</a>
+                    <a href="{{ path('app_produits_edit', {'id': produit.id}) }}">Modifier</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br>
+    <button type="button" class="btn btn-light "><a href="{{ path('app_produits_new') }}">Ajouter un produit</a></button>
+    </div>
+    <!--<a href="{{ path('app_produits_new') }}">Ajouter un produit</a>!-->
+
+{% endblock %}

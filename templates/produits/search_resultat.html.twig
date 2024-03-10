@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% if produit is not null %}
+    <h1>Résultat de la recherche par ID</h1>
+    <p>ID: {{ produit.id }}</p>
+    <p>Nom: {{ produit.nom }}</p>
+    <p>Description: {{ produit.description }}</p>
+    <p>Prix: {{ produit.prix }}</p>
+{% else %}
+    <p>Aucun produit trouvé pour cet ID.</p>
+{% endif %}

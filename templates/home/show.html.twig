@@ -1,0 +1,24 @@
+   {% for produit in produits %}
+  <div class="col-4 mt-3">
+  
+    <div class="card">
+    
+       <img src="{{ produit.image }}" alt="image">
+      
+      <div class="card-body">
+        <p class="card-text">
+          <b> {{ produit.prix   }} TND </b><br>
+          {{ produit.libelle }}
+
+        </p>
+      <a href="{{ path ('app_detail', {'id': produit.id}) }}"><button type="button" class="btn btn-success">voir detail</button></a>
+     <a href="{{ path ("cart_add", {id: produit.id}) }}" class="btn btn-success addToCart">
+    <i class="bi bi-cart-plus"></i> Ajouter panier
+</a>
+
+</div>
+</div>
+{% endfor %}
+
+
+   

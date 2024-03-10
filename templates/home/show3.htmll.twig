@@ -1,0 +1,47 @@
+{% block body %}<br><br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="container">
+<table >
+  <tr>
+    <th><div class="col-4 mt-3">
+  
+    <div class="card">
+    <style>
+    .product-image {
+    width: 200px;
+    height: 200px;
+}</style>
+    
+       <img src="{{ produit.image }}" alt="image" class="product-image"></th>
+    <th>
+    <table>
+  <tr>
+  <th>
+    <td>
+        
+           
+            <tr>
+                <td>Libelle: </td>
+                <td>{{ produit.libelle }}</td>
+            </tr>
+            <tr>
+                <td>Prix: </td>
+                <td>{{ produit.prix }}</td>
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>{{ produit.description }}</td>
+            </tr>
+        
+    
+</td>
+</th>
+ 
+</tr>
+ 
+  
+</table><br>
+
+
+{% endblock %}
